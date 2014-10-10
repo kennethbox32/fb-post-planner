@@ -1,0 +1,48 @@
+
+
+
+
+
+<div class="container" style='top: 70px; position: relative;'>
+    <div class='row'>
+
+
+
+<form class="form-horizontal" role="form" method="post" action="/edit/{{post.key.id()}}">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Message</label>
+    <div class="col-sm-10">
+      <textarea name="message" class="form-control col-sm-10">{{post.message}}</textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <div class="form-group">
+          <div class='input-group date' id='datetimepicker'>
+              <input type='text' class="form-control" name="date_to_post" value="{{date}}"/>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" required></span>
+              </span>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+</form>
+
+
+
+        <div class="fb-like" data-href="https://developers.facebook.com/apps/365075190309550/dashboard/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false" id="fb-root"></div>
+    </div>
+
+</div>
+
+
+
+</body>
+
+
+
+</html>
