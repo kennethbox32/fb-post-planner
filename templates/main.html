@@ -31,14 +31,23 @@
       
      <div class="container" style= 'top: 100px; right: -15px;position: center;' >
         <div class='row'>
-           <form role="form" id="post-form" action="/" method="post">
+           <form role="form" id="post-form" action="/" method="post" class="col-md-8">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Status: </label>
+            <textarea name="message" class="form-control" id="message" required placeholder="Write Something..."></textarea>
+            <input type="hidden" name="access_token" value="">
+            <input type="hidden" name="fbID" value="">
             <div class="form-group">
-               <textarea name="message" class="form-control" id="message" required placeholder="Write Your Status Here..."></textarea>
-                <input type="hidden" name="access_token" value="">
-            </div>    
-            <br><br>
-              <button type="submit" class="btn btn-default btn-facebook" style="background:#FFE4E4; border:outset 2px #1975FF" >Post</button>
-          </form>
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' class="form-control" name="date_to_post"/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" required></span>
+                    </span>
+                </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default btn-facebook">Post</button>
+        </form>
+        <div class="fb-like" data-href="https://developers.facebook.com/apps/365075190309550/dashboard/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
         </div>
       </div>
 
@@ -58,6 +67,8 @@
     <script type ="text/x-handlers-template" id="tple-tweet">  
     </script>
     {% endraw %}
+
+
 
 
 </body>
