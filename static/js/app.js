@@ -2,12 +2,13 @@ window.fbAsyncInit = function() {
 		FB.init({
 		appId : '1461964880758129',
 		xfbml : true,
-		version : 'v2.1'
+		version    : 'v2.0',
+        cookie     : true
 		});
 		initialize();
 };
 
-(function(d, s, id){
+	(function(d, s, id){
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
 		js = d.createElement(s); js.id = id;
@@ -15,8 +16,13 @@ window.fbAsyncInit = function() {
 		fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 
-function initialize() {
-		var user;
+
+ 		var user;
+
+
+	function initialize() {
+		
+
 		var baseUrl = "https://graph.facebook.com/v2.1/";
 		
 		getLoginStatus();
@@ -26,6 +32,9 @@ function initialize() {
 		})
 
 		$("#fb-logout").click(logout);
+
+/*
+
 		$("#post-form").submit(function(){
 			if(user){
 				var msg = $("#post-form textarea").val();
@@ -36,6 +45,14 @@ function initialize() {
 				return false;
 				}
 		});
+
+
+*/
+
+    $("#post-form").submit(function(){
+        $("#post-form [name='access_token']").val(user.accessToken);
+    });
+
 
 	function getLoginStatus(callback){
 		FB.getLoginStatus(function(response){
@@ -49,6 +66,9 @@ function initialize() {
 			});
 		}
 			
+
+ /*
+
 	function postToFB(msg){
 		var url = baseUrl + user.userID + "/feed/";
 		var data = {
@@ -67,6 +87,9 @@ function initialize() {
 			});	
 
 		}
+
+
+*/
 
 	function getFBresponse(response){
 			user=response.authResponse;
