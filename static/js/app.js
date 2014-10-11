@@ -31,6 +31,12 @@ window.fbAsyncInit = function() {
 		getLoginStatus(login);
 		})
 
+
+$("#post-now").click(function(){
+        $("#post-form").attr("action","/post-now").submit();+    })
+
+
+
 		$("#fb-logout").click(logout);
 
  /*

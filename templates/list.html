@@ -1,38 +1,73 @@
 
+<html>
 
 
-
+<body>
 
 
 <div class="container" style='top: 70px; position: relative;'>
-    <div class='row'>
+    <div class='row well blue'>
 
-    	<div>
-    		{% for post in posts %}
-	      	  	<div>
-	      	  		{{post.message}}
-	      	  	</div>
-	      	  	<div>
-	      	  		{{post.date_to_post}}
-	      	  	</div>
-	      	  	<div><a href="/edit/{{post.key.id()}}">Edit</a></div>
-	      	  	<div><a href="/delete/{{post.key.id()}}">Del</a></div>
-	      	 {% else %}
-	      	 <div>
-	      	 		No posts to show
-	      	 </div>
-	      	 	
 
-	        {% endfor %}
-    	</div>
+    <div class="postlist">
+    	<div><h3>Scheduled Posts:</h3></div>
+    	{% for post in posts %}
     	
-    
+       		<div class="panel panel-info">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">{{post.date_to_post}}
+			    	<a class="badge pull-right" href="/edit/{{post.key.id()}}">Edit</a>
+			    	<a class="badge pull-right" href="/delete/{{post.key.id()}}">Delete</a>
+			    </h3>
+			    
+			  </div>
+			  <div class="panel-body">
+			    {{post.message}}
+			  </div>
+			</div>
+    	{% else %}
+    	
+    	<div>
+       	 	No post to show
+       	 </div>
+       	 {% endfor %}
 
+    </div>
+
+    <div class="postlist">
+      <div><h3>Posted:</h3></div>
+      {% for post in posted %}
+      
+          <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{post.date_to_post}}
+            <a class="badge pull-right" href="/delete/{{post.key.id()}}">Delete</a>
+          </h3>
+          
+        </div>
+        <div class="panel-body">
+          {{post.message}}
+        </div>
+      </div>
+      {% else %}
+      
+      <div>
+          No post to show
+         </div>
+         {% endfor %}
+
+    </div>
+    	
 
     	<!-- End of Content-->
         <div class="fb-like" data-href="https://developers.facebook.com/apps/365075190309550/dashboard/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
     </div>
 
 </div>
+
+
 </body>
+
+
+
 </html>
